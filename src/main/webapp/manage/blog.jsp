@@ -38,17 +38,17 @@
 			<table class="list">
 				<tr>
 					<th>ID</th>
-					<th>文章标题</th>
+					<th>新闻标题</th>
 					<th>操作</th>
 				</tr>
 				<tr>
 					<td class="first w4 c">1</td>
-					<td class="thumb"><a href="../blog-view.jsp" target="_blank">网页中图片属性固定宽度，如何用js改变大小</a></td>
+					<td class="thumb"><a href="../blog-view.jsp" target="_blank">海鲜怎么吃</a></td>
 					<td class="w1 c"><a href="blog-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
 				<tr>
 					<td class="first w4 c">1</td>
-					<td class="thumb"><a href="../blog-view.jsp" target="_blank">网页中图片属性固定宽度，如何用js改变大小</a></td>
+					<td class="thumb"><a href="../blog-view.jsp" target="_blank">牛排怎么吃</a></td>
 					<td class="w1 c"><a href="blog-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
 			</table>

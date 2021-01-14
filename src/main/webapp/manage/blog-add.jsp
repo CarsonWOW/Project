@@ -37,12 +37,20 @@
 			<form action="manage-result.jsp">
 				<table class="form">
 					<tr>
-						<td class="field">文章标题：</td>
+						<td class="field">新闻标题：</td>
 						<td><input type="text" class="text" name="title" value="陌上花开，可缓缓归矣" /></td>
 					</tr>
 					<tr>
-						<td class="field">信息描述</td>
+						<td class="field">新闻大纲</td>
 						<td><input type="text" class="text" name="description" /></td>
+					</tr>
+					<tr>
+						<td class="field">新闻详细描述</td>
+						<td><input type="text" class="text" name="D_description" /></td>
+					</tr>
+					<tr>
+						<td class="field">新闻图片</td>
+						<td><input type="file" class="text" name="New_picture" /></td>
 					</tr>
 					<tr>
 						<td></td>

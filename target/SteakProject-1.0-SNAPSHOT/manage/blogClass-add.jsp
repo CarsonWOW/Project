@@ -32,31 +32,31 @@
 </div>
 <jsp:include page="comm.jsp"></jsp:include>
 	<div class="main">
-		<h2>添加分类</h2>
+		<h2>添加美食</h2>
 		<div class="manage">
 			<form action="manage-result.jsp">
 				<table class="form">
 					<tr>
-						<td class="field">父分类：</td>
+						<td class="field">食物分类：</td>
 						<td>
 							<select name="parentId">
 								<option value="0" selected="selected">根栏目</option>
-								<option value="1">mysql</option>
-								<option value="2">oracle</option>
+								<option value="1">牛排</option>
+								<option value="2">海鲜</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td class="field">菜品名称：</td>
-						<td><input type="text" class="text" name="className" value="oracle" /></td>
+						<td><input type="text" class="text" name="className" value="" /></td>
 					</tr>
 					<tr>
 						<td class="field">菜品价格：</td>
-						<td><input type="text" class="text" name="className" value="oracle" /></td>
+						<td><input type="text" class="text" name="className" value="" /></td>
 					</tr>
 					<tr>
-						<td class="field">图片：</td>
-						<td><input type="text" class="text" name="className" value="oracle" /></td>
+						<td class="field">菜品图片：</td>
+						<td><input type="file" class="text" name="className" value="" /></td>
 					</tr>
 					<tr>
 						<td></td>
