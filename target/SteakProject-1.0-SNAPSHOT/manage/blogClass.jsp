@@ -32,20 +32,24 @@
 </div>
 <jsp:include page="comm.jsp"></jsp:include>
 	<div class="main">
-		<h2>分类管理</h2>
+		<h2>美食管理</h2>
 		<div class="manage">
 			<table class="list">
 				<tr>
 					<th>ID</th>
-					<th>分类名称</th>
+					<th>美食名称</th>
+					<th>价格</th>
+					<th>种类</th>
 					<th>操作</th>
 				</tr>
 				<tr>
 					<td class="first w4 c">1</td>
-					<td>大类</td>
+					<td>美食名称</td>
+					<td>价格</td>
+					<td>种类</td>
 					<td class="w1 c"><a href="blogClass-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>
-				<tr>
+				<%--<tr>
 					<td class="first w4 c">1</td>
 					<td class="childClass">小类</td>
 					<td class="w1 c"><a href="blogClass-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
@@ -69,7 +73,7 @@
 					<td class="first w4 c">1</td>
 					<td class="childClass">小类</td>
 					<td class="w1 c"><a href="blogClass-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr>
+				</tr>--%>
 			</table>
 		</div>
 	</div>

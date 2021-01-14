@@ -19,8 +19,9 @@
                 <dt>用户管理</dt>
                 <dd><em><a href="${pageContext.request.contextPath}/manage/user-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/user.jsp">用户管理</a></dd>
                 <dt>新闻咨询管理</dt>
+                <dd><em><a href="${pageContext.request.contextPath}/manage/blog-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/blog.jsp">新闻管理</a></dd>
+                <dt>美食管理</dt>
                 <dd><em><a href="${pageContext.request.contextPath}/manage/blogClass-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/blogClass.jsp">分类管理</a></dd>
-                <dd><em><a href="${pageContext.request.contextPath}/manage/blog-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/blog.jsp">文章管理</a></dd>
                 <dt>留言管理</dt>
                 <dd><a href="${pageContext.request.contextPath}/manage/guestbook.jsp">留言管理</a></dd>
             </dl>

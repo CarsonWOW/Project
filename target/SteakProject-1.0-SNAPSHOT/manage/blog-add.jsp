@@ -32,7 +32,7 @@
 </div>
 <jsp:include page="comm.jsp"></jsp:include>
 	<div class="main">
-		<h2>添加文章</h2>
+		<h2>添加新闻</h2>
 		<div class="manage">
 			<form action="manage-result.jsp">
 				<table class="form">
@@ -40,19 +40,6 @@
 						<td class="field">文章标题：</td>
 						<td><input type="text" class="text" name="title" value="陌上花开，可缓缓归矣" /></td>
 					</tr>
-					<tr>
-						<td class="field">所属分类：</td>
-						<td>
-							<select name="parentId">
-								<option value="1">数据库</option>
-								<option value="3">├ mysql</option>
-								<option value="3">└ oracle</option>
-								<option value="2">java</option>
-								<option value="3">├ OOP</option>
-								<option value="3">└ jsp</option>
-							</select>
-						</td>
-					</tr>				
 					<tr>
 						<td class="field">信息描述</td>
 						<td><input type="text" class="text" name="description" /></td>

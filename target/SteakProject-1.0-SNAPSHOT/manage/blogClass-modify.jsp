@@ -32,7 +32,7 @@
 </div>
 <jsp:include page="comm.jsp"></jsp:include>
 	<div class="main">
-		<h2>修改分类</h2>
+		<h2>修改菜品</h2>
 		<div class="manage">
 			<form action="manage-result.jsp">
 				<table class="form">

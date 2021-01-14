@@ -47,7 +47,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="field">分类名称：</td>
+						<td class="field">菜品名称：</td>
+						<td><input type="text" class="text" name="className" value="oracle" /></td>
+					</tr>
+					<tr>
+						<td class="field">菜品价格：</td>
+						<td><input type="text" class="text" name="className" value="oracle" /></td>
+					</tr>
+					<tr>
+						<td class="field">图片：</td>
 						<td><input type="text" class="text" name="className" value="oracle" /></td>
 					</tr>
 					<tr>
