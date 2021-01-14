@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 		<div class="clearfix nav">
 			<a class="logo" href="javascript:;"></a>
 			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="index.jsp">首页</a></li>
 				<li><a class="nav-item" href="pinpai.jsp">品牌故事</a></li>
 				<li><a class="nav-item nav-active" href="meishi.jsp">美食系列</a></li>
 				<li><a class="nav-item" href="shop.jsp">店面展示</a></li>

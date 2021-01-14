@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 		</div>
 		
 		<ul class="breadnav clearfix">
-			<li class="bnav-item"><a href="index.html">首页</a></li>
+			<li class="bnav-item"><a href="index.jsp">首页</a></li>
 			<li class="bnav-item">&lt;</li>
 			<li class="bnav-item"><a href="pinpai.jsp">品牌故事</a></li>
 			<li class="bnav-item">&lt;</li>
