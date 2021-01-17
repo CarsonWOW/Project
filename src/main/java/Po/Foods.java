@@ -6,6 +6,7 @@ public class Foods {
     private String fPrice;//菜品价格
     private String fPicture;//菜品图片
     private int fTid;//菜品种类id
+    private String foodPrint;//菜品介绍
 
     public Foods() {
 
@@ -19,15 +20,8 @@ public class Foods {
                 ", fPrice='" + fPrice + '\'' +
                 ", fPicture='" + fPicture + '\'' +
                 ", fTid=" + fTid +
+                ", foodPrint='" + foodPrint + '\'' +
                 '}';
-    }
-
-    public Foods(int fId, String foodName, String fPrice, String fPicture, int fTid) {
-        this.fId = fId;
-        this.foodName = foodName;
-        this.fPrice = fPrice;
-        this.fPicture = fPicture;
-        this.fTid = fTid;
     }
 
     public int getfId() {
@@ -68,5 +62,22 @@ public class Foods {
 
     public void setfTid(int fTid) {
         this.fTid = fTid;
+    }
+
+    public String getFoodPrint() {
+        return foodPrint;
+    }
+
+    public void setFoodPrint(String foodPrint) {
+        this.foodPrint = foodPrint;
+    }
+
+    public Foods(int fId, String foodName, String fPrice, String fPicture, int fTid, String foodPrint) {
+        this.fId = fId;
+        this.foodName = foodName;
+        this.fPrice = fPrice;
+        this.fPicture = fPicture;
+        this.fTid = fTid;
+        this.foodPrint = foodPrint;
     }
 }
