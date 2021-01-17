@@ -34,25 +34,35 @@
 	<div class="main">
 		<h2>修改菜品</h2>
 		<div class="manage">
-			<form action="manage-result.jsp">
+			<form action="updateFoods.food" method="post">
 				<table class="form">
+					<td><input type="hidden" class="text" name="id" value="${foods.fId}" /></td>
 					<tr>
-						<td class="field">父分类：</td>
+						<td class="field">菜品种类：</td>
 						<td>
 							<select name="parentId">
-								<option value="0" selected="selected">根栏目</option>
-								<option value="1">mysql</option>
-								<option value="2">oracle</option>
+								<%--<option value="0" selected="selected">根栏目</option>--%>
+								<c:forEach var="li" items="${foodsTypes}">
+									<c:if test="${li.childId==foods.fTid}">
+										<option selected="selected" value="${li.childId}">${li.foodsTypeName}</option>
+									</c:if>
+								<%--<option value="${li.childId}" selected="selected">${li.foodsTypeName}</option>--%>
+								<option value="${li.childId}">${li.foodsTypeName}</option>
+								</c:forEach>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td class="field">分类名称：</td>
-						<td><input type="text" class="text" name="className" value="oracle" /></td>
+						<td class="field">菜品名称：</td>
+						<td><input type="text" class="text" name="foodsName" value="${foods.foodName}" /></td>
+					</tr>
+					<tr>
+						<td class="field">菜品价格：</td>
+						<td><input type="text" class="text" name="foodsPrice" value="${foods.fPrice}" /></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><label class="ui-blue"><input type="submit" name="submit" value="更新" /></label></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="修改" /></label></td>
 					</tr>
 				</table>
 			</form>

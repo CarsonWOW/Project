@@ -3,67 +3,70 @@ package Po;
 import java.sql.Date;
 
 public class News {
-    private int id;
-    private String NewsTitle;//新闻标题
-    private String NewsDes;//新闻大纲
-    private String NewsDDes;//新闻描述
-    private Date createTime;//创建时间
-    private String NewsPicture;//新闻图片
+    private int newId;
+    private String newPicture;//新闻图片
+    private String newTitle;
+    private String newDes;//新闻大纲
+    private String newDDes;//新闻描述
+    private Date createTime;//时间
 
     public News() {
+
     }
 
     @Override
     public String toString() {
         return "News{" +
-                "id=" + id +
-                ", NewsTitle='" + NewsTitle + '\'' +
-                ", NewsDes='" + NewsDes + '\'' +
-                ", NewsDDes='" + NewsDDes + '\'' +
+                "newId=" + newId +
+                ", newTitle='" + newTitle + '\'' +
+                ", newDes='" + newDes + '\'' +
+                ", newDDes='" + newDDes + '\'' +
                 ", createTime=" + createTime +
-                ", NewsPicture='" + NewsPicture + '\'' +
+                ", newPicture='" + newPicture + '\'' +
                 '}';
     }
 
-    public News(int id, String newsTitle, String newsDes, String newsDDes, Date createTime, String newsPicture) {
-        this.id = id;
-        NewsTitle = newsTitle;
-        NewsDes = newsDes;
-        NewsDDes = newsDDes;
+
+
+    public News(int newId, String newTitle, String newDes, String newDDes, Date createTime, String newPicture) {
+        this.newId = newId;
+        this.newTitle = newTitle;
+        this.newDes = newDes;
+        this.newDDes = newDDes;
         this.createTime = createTime;
-        NewsPicture = newsPicture;
+        this.newPicture = newPicture;
     }
 
-    public int getId() {
-        return id;
+    public int getNewId() {
+        return newId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNewId(int newId) {
+        this.newId = newId;
     }
 
-    public String getNewsTitle() {
-        return NewsTitle;
+    public String getNewTitle() {
+        return newTitle;
     }
 
-    public void setNewsTitle(String newsTitle) {
-        NewsTitle = newsTitle;
+    public void setNewTitle(String newTitle) {
+        this.newTitle = newTitle;
     }
 
-    public String getNewsDes() {
-        return NewsDes;
+    public String getNewDes() {
+        return newDes;
     }
 
-    public void setNewsDes(String newsDes) {
-        NewsDes = newsDes;
+    public void setNewDes(String newDes) {
+        this.newDes = newDes;
     }
 
-    public String getNewsDDes() {
-        return NewsDDes;
+    public String getNewDDes() {
+        return newDDes;
     }
 
-    public void setNewsDDes(String newsDDes) {
-        NewsDDes = newsDDes;
+    public void setNewDDes(String newDDes) {
+        this.newDDes = newDDes;
     }
 
     public Date getCreateTime() {
@@ -74,11 +77,11 @@ public class News {
         this.createTime = createTime;
     }
 
-    public String getNewsPicture() {
-        return NewsPicture;
+    public String getNewPicture() {
+        return newPicture;
     }
 
-    public void setNewsPicture(String newsPicture) {
-        NewsPicture = newsPicture;
+    public void setNewPicture(String newPicture) {
+        this.newPicture = newPicture;
     }
 }

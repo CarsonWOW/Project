@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8" isELIgnored="false" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,17 +9,7 @@ pageEncoding="UTF-8"%>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>
-		<div class="clearfix nav">
-			<a class="logo" href="javascript:;"></a>
-			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item" href="index.jsp">首页</a></li>
-				<li><a class="nav-item" href="pinpai.jsp">品牌故事</a></li>
-				<li><a class="nav-item nav-active" href="meishi.jsp">美食系列</a></li>
-				<li><a class="nav-item" href="shop.jsp">店面展示</a></li>
-				<li><a class="nav-item" href="news.jsp">新闻资讯</a></li>
-				<li><a class="nav-item" href="about-us.jsp">关于我们</a></li>
-			</ul>
-		</div>
+	<jsp:include page="comm.jsp"></jsp:include>
 		
 		<div id="container">
 			<div id="buttons">
@@ -39,12 +30,9 @@ pageEncoding="UTF-8"%>
 		</ul>
 		<div class="clearfix table-wrap" id="tab-span">
 			<span class="table-item table-active">全部菜品</span>
-			<span class="table-item">经典牛排</span>
-			<span class="table-item">意面/烩饭</span>
-			<span class="table-item">风味披萨</span>
-			<span class="table-item">甜品小食</span>
-			<span class="table-item">酒水饮料</span>
-			<span class="table-item">其他</span>
+			<c:forEach var="u" items="${foodsTypes}">
+			<span class="table-item">${u.foodsTypeName}</span>
+			</c:forEach>
 			<div class="search clearfix">
 				<input class="inp-txt" type="text" name="address" value="输入关键字" 
 				onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
@@ -54,14 +42,19 @@ pageEncoding="UTF-8"%>
 		</div>
 		<div id="table-div">
 			<div class="table-pic table-show clearfix">
+				<c:forEach var="li" items="${list}">
 				<a href="meishi-con.jsp" class="ms-wrap ms-right">
 					<span class="ms-pic">
-						<img src="img/ms-pic1.jpg" alt="" />
+						<%--食物图片--%>
+						<img src="${li.fPicture}" alt="" />
 					</span>
-					<h2 class="ms-tit">海鲜芝士大虾</h2>
-					<p class="ms-txt">价格：49元</p>
+					<%--食物名称--%>
+					<h2 class="ms-tit">${li.foodName}</h2>
+					<%--食物价格--%>
+					<p class="ms-txt">价格：${li.fPrice}</p>
 				</a>
-				<a href="meishi-con.jsp" class="ms-wrap ms-right">
+				</c:forEach>
+				<%--<a href="meishi-con.jsp" class="ms-wrap ms-right">
 					<span class="ms-pic">
 						<img src="img/ms-pic2.jpg" alt="" />
 					</span>
@@ -156,7 +149,7 @@ pageEncoding="UTF-8"%>
 					</span>
 					<h2 class="ms-tit">海鲜芝士大虾</h2>
 					<p class="ms-txt">价格：49元</p>
-				</a>
+				</a>--%>
 			</div>
 			<ul class="ms-paging clearfix">
 				<li><a href="javascript:;" class="pag-item">&lt;</a></li>

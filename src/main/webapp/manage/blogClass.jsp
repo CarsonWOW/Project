@@ -8,6 +8,14 @@
 <title>后台管理 - 博客网</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style(1).css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/function-manage.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script >
+		function deleteFoods(id) {
+			if (confirm("确定要删除吗?")){
+				location.href = "deleteFoods.food?id=" + id;
+			}
+		}
+	</script>
 </head>
 <body>
 <div id="header" class="wrap">
@@ -42,13 +50,20 @@
 					<th>种类</th>
 					<th>操作</th>
 				</tr>
+				<c:forEach var="li" items="${list}">
 				<tr>
-					<td class="first w4 c">1</td>
-					<td>美食名称</td>
-					<td>价格</td>
-					<td>种类</td>
-					<td class="w1 c"><a href="blogClass-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+					<td class="first w4 c">${li.fId}</td>
+					<td>${li.foodName}</td>
+					<td>${li.fPrice}</td>
+					<c:forEach var="u" items="${foodsTypes}">
+					<c:if test="${li.fTid==u.childId}">
+						<td>${u.foodsTypeName}</td>
+					</c:if>
+					</c:forEach>
+					<td class="w1 c"><a href="findFoodsById.food?id=${li.fId}">修改</a> <a href="javascript:deleteFoods(${li.fId});">删除</a></td>
 				</tr>
+				</c:forEach>
+
 				<%--<tr>
 					<td class="first w4 c">1</td>
 					<td class="childClass">小类</td>

@@ -32,34 +32,26 @@
 </div>
 <jsp:include page="comm.jsp"></jsp:include>
 	<div class="main">
-		<h2>修改文章</h2>
+		<h2>修改新闻</h2>
 		<div class="manage">
-			<form action="manage-result.jsp">
+			<form action="updateNews.new" method="post" >
 				<table class="form">
+					<td><input type="hidden"  name="id" value="${news.newId}" />id</td>
 					<tr>
-						<td class="field">文章标题：</td>
-						<td><input type="text" class="text" name="title" value="陌上花开，可缓缓归矣" /></td>
+						<td class="field">新闻标题：</td>
+						<td><input type="text" class="text" name="title" value="${news.newTitle}" /></td>
 					</tr>
 					<tr>
-						<td class="field">所属分类：</td>
-						<td>
-							<select name="parentId">
-								<option value="1">数据库</option>
-								<option value="3">├ mysql</option>
-								<option value="3">└ oracle</option>
-								<option value="2">java</option>
-								<option value="3">├ OOP</option>
-								<option value="3">└ jsp</option>
-							</select>
-						</td>
+						<td class="field">新闻大纲：</td>
+						<td><input type="text" class="text" name="description" value="${news.newDes}" /></td>
 					</tr>			
 					<tr>
-						<td class="field">信息描述</td>
-						<td><input type="text" class="text" name="description" /></td>
+						<td class="field">新闻描述</td>
+						<td><input type="text" class="text" name="D_description" value="${news.newDDes}"/></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><label class="ui-blue"><input type="submit" name="submit" value="添加" /></label></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="修改" /></label></td>
 					</tr>
 				</table>
 			</form>

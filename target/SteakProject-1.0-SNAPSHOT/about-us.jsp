@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8" isErrorPage="false" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,17 +9,7 @@ pageEncoding="UTF-8"%>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>
-		<div class="clearfix nav">
-			<a class="logo" href="javascript:;"></a>
-			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item" href="index.jsp">首页</a></li>
-				<li><a class="nav-item" href="pinpai.jsp">品牌故事</a></li>
-				<li><a class="nav-item" href="meishi.jsp">美食系列</a></li>
-				<li><a class="nav-item" href="shop.jsp">店面展示</a></li>
-				<li><a class="nav-item" href="news.jsp">新闻资讯</a></li>
-				<li><a class="nav-item nav-active" href="about-us.jsp">关于我们</a></li>
-			</ul>
-		</div>
+	<jsp:include page="comm.jsp"></jsp:include>
 		
 		<div id="container">
 			<div id="buttons">

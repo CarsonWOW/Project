@@ -1,5 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8" isELIgnored="false" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,17 +10,7 @@ pageEncoding="UTF-8"%>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>
-		<div class="clearfix nav">
-			<a class="logo" href="javascript:;"></a>
-			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item" href="index.jsp">首页</a></li>
-				<li><a class="nav-item" href="pinpai.jsp">品牌故事</a></li>
-				<li><a class="nav-item" href="meishi.jsp">美食系列</a></li>
-				<li><a class="nav-item" href="shop.jsp">店面展示</a></li>
-				<li><a class="nav-item nav-active" href="news.jsp">新闻资讯</a></li>
-				<li><a class="nav-item" href="about-us.jsp">关于我们</a></li>
-			</ul>
-		</div>
+	<jsp:include page="comm.jsp"></jsp:include>
 		
 		<div id="container">
 			<div id="buttons">
@@ -37,103 +29,30 @@ pageEncoding="UTF-8"%>
 		</ul>
 		<div class="newslist-wrap">
 			<p class="newslist-tit">新闻资讯</p>
+			<%--<jsp:useBean id="list" scope="session" type="java.util.List"/>--%>
+			<c:forEach var="li" items="${list}">
 			<dl class="newslist-box clearfix">
+				<td><input type="hidden"  name="id" value="${li.newId}" /></td>
 				<dt class="newslist-pic">
-					<img src="img/news-pic1.jpg"/>
+					<img  src="${li.newPicture}"/>
 				</dt>
 				<dd class="newslist-txt">
-					<a href="news-con.jsp" class="newslist-font24">西餐代表 牛排的种类和吃法</a>
+					<a href="news-con.jsp" class="newslist-font24">${li.newTitle}</a>
 					<ul class="newslist-ul">
 						<li class="newslist-li">
-							<p class="newslist-time">2016.12.25</p>
+							<p class="newslist-time">${li.createTime}</p>
 						</li>
 						<li class="newslist-li">
-							<a href="news-con.jsp" class="newslist-con">提到牛排，脑子里就会想到焦棕褐色、表面扶着香甜的肉汁，切开后的粉红肉质，入口之后留下的满口肉香。吃牛排其实是非常讲究的，精致的牛肉配上美味的香料，加以烹调，是款待尊贵客人的最佳美食。</a>
+							<a href="news-con.jsp" class="newslist-con">${li.newDes}</a>
 						</li>
-						<li class="newslist-li"><a class="newslist-link" href="news-con.jsp">&lt;阅读全文&gt;</a></li>
+						<li class="newslist-li"><a class="newslist-link" href="findD_des.new?id=${li.newId}">&lt;阅读全文&gt;</a></li>
 					</ul>
 				</dd>
 			</dl>
 			<span class="news-line">
 				<img src="img/news-line.png"/>
 			</span>
-			<dl class="newslist-box clearfix">
-				<dt class="newslist-pic">
-					<img src="img/news-pic2.jpg"/>
-				</dt>
-				<dd class="newslist-txt">
-					<a href="news-con.jsp" class="newslist-font24">西餐代表 牛排的种类和吃法</a>
-					<ul class="newslist-ul">
-						<li class="newslist-li">
-							<p class="newslist-time">2016.12.25</p>
-						</li>
-						<li class="newslist-li">
-							<a href="news-con.jsp" class="newslist-con">提到牛排，脑子里就会想到焦棕褐色、表面扶着香甜的肉汁，切开后的粉红肉质，入口之后留下的满口肉香。吃牛排其实是非常讲究的，精致的牛肉配上美味的香料，加以烹调，是款待尊贵客人的最佳美食。</a>
-						</li>
-						<li class="newslist-li"><a class="newslist-link" href="news-con.jsp">&lt;阅读全文&gt;</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<span class="news-line">
-				<img src="img/news-line.png"/>
-			</span>
-			<dl class="newslist-box clearfix">
-				<dt class="newslist-pic">
-					<img src="img/news-pic3.jpg"/>
-				</dt>
-				<dd class="newslist-txt">
-					<a href="news-con.jsp" class="newslist-font24">西餐代表 牛排的种类和吃法</a>
-					<ul class="newslist-ul">
-						<li class="newslist-li">
-							<p class="newslist-time">2016.12.25</p>
-						</li>
-						<li class="newslist-li">
-							<a href="news-con.jsp" class="newslist-con">提到牛排，脑子里就会想到焦棕褐色、表面扶着香甜的肉汁，切开后的粉红肉质，入口之后留下的满口肉香。吃牛排其实是非常讲究的，精致的牛肉配上美味的香料，加以烹调，是款待尊贵客人的最佳美食。</a>
-						</li>
-						<li class="newslist-li"><a class="newslist-link" href="news-con.jsp">&lt;阅读全文&gt;</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<span class="news-line">
-				<img src="img/news-line.png"/>
-			</span>
-			<dl class="newslist-box clearfix">
-				<dt class="newslist-pic">
-					<img src="img/news-pic4.jpg"/>
-				</dt>
-				<dd class="newslist-txt">
-					<a href="news-con.jsp" class="newslist-font24">西餐代表 牛排的种类和吃法</a>
-					<ul class="newslist-ul">
-						<li class="newslist-li">
-							<p class="newslist-time">2016.12.25</p>
-						</li>
-						<li class="newslist-li">
-							<a href="news-con.jsp" class="newslist-con">提到牛排，脑子里就会想到焦棕褐色、表面扶着香甜的肉汁，切开后的粉红肉质，入口之后留下的满口肉香。吃牛排其实是非常讲究的，精致的牛肉配上美味的香料，加以烹调，是款待尊贵客人的最佳美食。</a>
-						</li>
-						<li class="newslist-li"><a class="newslist-link" href="news-con.jsp">&lt;阅读全文&gt;</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<span class="news-line">
-				<img src="img/news-line.png"/>
-			</span>
-			<dl class="newslist-box clearfix">
-				<dt class="newslist-pic">
-					<img src="img/news-pic5.jpg"/>
-				</dt>
-				<dd class="newslist-txt">
-					<a href="news-con.jsp" class="newslist-font24">西餐代表 牛排的种类和吃法</a>
-					<ul class="newslist-ul">
-						<li class="newslist-li">
-							<p class="newslist-time">2016.12.25</p>
-						</li>
-						<li class="newslist-li">
-							<a href="news-con.jsp" class="newslist-con">提到牛排，脑子里就会想到焦棕褐色、表面扶着香甜的肉汁，切开后的粉红肉质，入口之后留下的满口肉香。吃牛排其实是非常讲究的，精致的牛肉配上美味的香料，加以烹调，是款待尊贵客人的最佳美食。</a>
-						</li>
-						<li class="newslist-li"><a class="newslist-link" href="news-con.jsp">&lt;阅读全文&gt;</a></li>
-					</ul>
-				</dd>
-			</dl>
+			</c:forEach>
 			<ul class="shop-paging clearfix">
 				<li><a href="javascript:;" class="pag-item">&lt;</a></li>
 				<li><a href="news.jsp" class="pag-item pag-active">1</a></li>

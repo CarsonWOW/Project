@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +8,15 @@
 <title>后台管理 - 博客网</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style(1).css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/function-manage.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script >
+		function Delete(id) {
+			/*alert("1111")*/
+			if (confirm("你确定要删除吗")) {
+				location.href = "deleteNew.new?id=" + id;
+			}
+		}
+	</script>
 </head>
 <body>
 <div id="header" class="wrap">
@@ -33,7 +42,7 @@
 <jsp:include page="comm.jsp"></jsp:include>
 
 	<div class="main">
-		<h2>文章管理</h2>
+		<h2>新闻管理</h2>
 		<div class="manage">
 			<table class="list">
 				<tr>
@@ -41,16 +50,14 @@
 					<th>新闻标题</th>
 					<th>操作</th>
 				</tr>
+				<c:forEach var="li" items="${list}">
 				<tr>
-					<td class="first w4 c">1</td>
-					<td class="thumb"><a href="../blog-view.jsp" target="_blank">海鲜怎么吃</a></td>
-					<td class="w1 c"><a href="blog-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+					<td class="first w4 c">${li.newId}</td>
+					<td class="w4 c"><a href="${pageContext.request.contextPath}/blog-view.jsp">${li.newTitle}</a></td>
+					<%--<td class="thumb"><a href="${pageContext.request.contextPath}/blog-view.jsp">${li.NewsTitle}</a></td>--%>
+					<td class="w1 c"><a href="findNewById.new?id=${li.newId}">修改</a> <a href="javascript:Delete(${li.newId});">删除</a></td>
 				</tr>
-				<tr>
-					<td class="first w4 c">1</td>
-					<td class="thumb"><a href="../blog-view.jsp" target="_blank">牛排怎么吃</a></td>
-					<td class="w1 c"><a href="blog-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr>
+				</c:forEach>
 			</table>
 		</div>
 	</div>

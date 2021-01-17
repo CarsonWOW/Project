@@ -34,33 +34,34 @@
 	<div class="main">
 		<h2>添加美食</h2>
 		<div class="manage">
-			<form action="manage-result.jsp">
+			<form action="showFood.food" method="post" enctype="multipart/form-data">
 				<table class="form">
 					<tr>
 						<td class="field">食物分类：</td>
 						<td>
 							<select name="parentId">
 								<option value="0" selected="selected">根栏目</option>
-								<option value="1">牛排</option>
-								<option value="2">海鲜</option>
+								<c:forEach var="li" items="${foodsTypes}">
+								<option value="${li.childId}">${li.foodsTypeName}</option>
+								</c:forEach>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td class="field">菜品名称：</td>
-						<td><input type="text" class="text" name="className" value="" /></td>
+						<td><input type="text" class="text" name="foodName"  /></td>
 					</tr>
 					<tr>
 						<td class="field">菜品价格：</td>
-						<td><input type="text" class="text" name="className" value="" /></td>
+						<td><input type="text" class="text" name="foodPrice"  /></td>
 					</tr>
 					<tr>
 						<td class="field">菜品图片：</td>
-						<td><input type="file" class="text" name="className" value="" /></td>
+						<td><input type="file" class="text" name="file"  /></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><label class="ui-blue"><input type="submit" name="submit" value="更新" /></label></td>
+						<td><label class="ui-blue"><input type="submit" name="submit" value="添加" /></label></td>
 					</tr>
 				</table>
 			</form>

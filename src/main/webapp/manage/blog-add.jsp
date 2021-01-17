@@ -34,11 +34,11 @@
 	<div class="main">
 		<h2>添加新闻</h2>
 		<div class="manage">
-			<form action="manage-result.jsp">
+			<form action="show.new" method="post" enctype="multipart/form-data">
 				<table class="form">
 					<tr>
 						<td class="field">新闻标题：</td>
-						<td><input type="text" class="text" name="title" value="陌上花开，可缓缓归矣" /></td>
+						<td><input type="text" class="text" name="title"  /></td>
 					</tr>
 					<tr>
 						<td class="field">新闻大纲</td>
@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td class="field">新闻图片</td>
-						<td><input type="file" class="text" name="New_picture" /></td>
+						<td><input type="file" class="text" name="file" /></td>
 					</tr>
 					<tr>
 						<td></td>
