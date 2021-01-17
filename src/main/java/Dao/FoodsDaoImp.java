@@ -15,8 +15,8 @@ import java.util.List;
 public class FoodsDaoImp implements FoodsDao {
     @Override
     public int save(Foods foods) {
-        String sql="INSERT INTO food (FoodName,Pirce,Picture,FoodTypeID) VALUES(?,?,?,?)";
-        Object num[]={foods.getFoodName(),foods.getfPrice(),foods.getfPicture(),foods.getfTid()};
+        String sql="INSERT INTO food (FoodName,Pirce,Picture,FoodTypeID,Foodprint) VALUES(?,?,?,?,?)";
+        Object num[]={foods.getFoodName(),foods.getfPrice(),foods.getfPicture(),foods.getfTid(),foods.getFoodPrint()};
         int i=0;
         try {
             i= BaseDao001.executeUpdate(sql,num);
@@ -58,6 +58,7 @@ public class FoodsDaoImp implements FoodsDao {
                 foods.setfPrice(rs.getString(3));
                 foods.setfPicture(rs.getString(4));
                 foods.setfTid(rs.getInt(5));
+                foods.setFoodPrint(rs.getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,8 +70,8 @@ public class FoodsDaoImp implements FoodsDao {
 
     @Override
     public int update(Foods foods) {
-        String sql="UPDATE food SET FoodName=?,Pirce=?,FoodTypeID=? WHERE ID=?";
-        Object num[]={foods.getFoodName(),foods.getfPrice(),foods.getfTid(),foods.getfId()};
+        String sql="UPDATE food SET FoodName=?,Pirce=?,FoodTypeID=?,Foodprint=? WHERE ID=?";
+        Object num[]={foods.getFoodName(),foods.getfPrice(),foods.getfTid(),foods.getFoodPrint(),foods.getfId()};
         int i=0;
         try {
             i= BaseDao001.executeUpdate(sql,num);
@@ -103,6 +104,7 @@ public class FoodsDaoImp implements FoodsDao {
                 foods.setfPrice(rs.getString(3));
                 foods.setfPicture(rs.getString(4));
                 foods.setfTid(rs.getInt(5));
+                foods.setFoodPrint(rs.getString(6));
                 list.add(foods);
             }
         } catch (SQLException e) {

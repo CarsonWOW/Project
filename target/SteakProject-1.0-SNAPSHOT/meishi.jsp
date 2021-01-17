@@ -42,8 +42,9 @@
 		</div>
 		<div id="table-div">
 			<div class="table-pic table-show clearfix">
-				<c:forEach var="li" items="${list}">
-				<a href="meishi-con.jsp" class="ms-wrap ms-right">
+				<c:forEach var="li" items="${list}">.
+					<input type="hidden" name="id" value="${li.fId}">
+				<a href="${pageContext.request.contextPath}/findFoodsByID.food?id=${li.fId}" class="ms-wrap ms-right">
 					<span class="ms-pic">
 						<%--食物图片--%>
 						<img src="${li.fPicture}" alt="" />

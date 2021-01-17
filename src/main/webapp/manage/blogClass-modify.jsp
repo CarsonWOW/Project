@@ -61,6 +61,10 @@
 						<td><input type="text" class="text" name="foodsPrice" value="${foods.fPrice}" /></td>
 					</tr>
 					<tr>
+						<td class="field">菜品描述：</td>
+						<td><input type="text" class="text" name="foodsPrint" value="${foods.foodPrint}" /></td>
+					</tr>
+					<tr>
 						<td></td>
 						<td><label class="ui-blue"><input type="submit" name="submit" value="修改" /></label></td>
 					</tr>

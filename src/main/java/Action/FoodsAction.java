@@ -3,10 +3,7 @@ package Action;
 import Po.Foods;
 import Po.FoodsType;
 import Po.News;
-import Service.FoodTypeService;
-import Service.FoodTypeServiceImp;
-import Service.FoodsService;
-import Service.FoodsServiceImp;
+import Service.*;
 import Utils.Page;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -28,6 +25,7 @@ import java.util.List;
 public class FoodsAction  extends HttpServlet {
     private FoodsService foodsService = new FoodsServiceImp();
     private FoodTypeService foodTypeService = new FoodTypeServiceImp();
+    private NewsService newsService = new NewsServiceImp();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -121,6 +119,8 @@ public class FoodsAction  extends HttpServlet {
                             } else if (fieldName.equals("foodPrice")) {
                                 //news.setNewDDes(item.getString("UTF-8"));
                                 foods.setfPrice(item.getString("UTF-8"));
+                            }else if (fieldName.equals("foodPrint")){
+                                foods.setFoodPrint(item.getString("UTF-8"));
                             }
                         } else {// 如果为文件域
                             String fileName = item.getName();// 获得文件名(全路径)
@@ -174,10 +174,12 @@ public class FoodsAction  extends HttpServlet {
             Integer parentId1=Integer.parseInt(parentId);
             String foodsName=req.getParameter("foodsName");//菜品名称
             String foodsPrice=req.getParameter("foodsPrice");//菜品价格
+            String foodsPrint=req.getParameter("foodsPrint");
             //创建对象
             Foods foods=new Foods();
             foods.setfTid(parentId1);
             foods.setfPrice(foodsPrice);
+            foods.setFoodPrint(foodsPrint);
             foods.setFoodName(foodsName);
             foods.setfId(id);
             //调用业务层修改方法
@@ -227,6 +229,67 @@ public class FoodsAction  extends HttpServlet {
             req.setAttribute("page", page);
             //转发
             req.getRequestDispatcher("meishi.jsp").forward(req, resp);
+            /**
+             * 点击美食,跳到meishi-con.jsp
+             */
+        }else if ("findFoodsByID".equals(url)){
+            //获取请求参数id
+            String idsbq=req.getParameter("id");
+            Integer id=Integer.parseInt(idsbq);
+            //调用业务层根据id查询方法
+            Foods foods=foodsService.findById(id);
+            //将foods对象存入作用域
+            req.setAttribute("foods",foods);
+            //转发
+            req.getRequestDispatcher("meishi-con.jsp").forward(req,resp);
+            /**
+             * 首页显示新闻咨询信息
+             */
+        }else if ("findNews".equals(url)){
+            //分页查询
+            //获取当前页数
+            String pageNow = req.getParameter("curPageNo");
+            Integer curPageNo = 1;
+            //判断不为空,否则会报空指针异常
+            if (pageNow != null) {
+                curPageNo = Integer.parseInt(pageNow);
+            }
+            //创建业务层
+            Page page = new Page();
+            //将获取到的页数,存如pageInfo对象
+            page.setCurPageNo(curPageNo);
+            //将设置好的pageInfo对象,放入方法中
+            List<Foods> listFood = foodsService.FoodsQueryAll(null, page);
+            //获取总条数
+            int i = foodsService.getTotalCount(null);
+            int i1=newsService.getTotalCount(null);
+            //创建菜品种类
+            List<FoodsType> foodsTypes = foodTypeService.findAll(null);
+            List<News> newsList = newsService.NewsQueryAll(null, page);
+            //放入pageInfo对象中，获取总条数
+            page.setTotalCount(i);
+            //将list参数,存入作用域中,因为jsp需要键,来获取值
+            req.setAttribute("foodsTypes", foodsTypes);
+            req.setAttribute("listFood", listFood);
+            req.setAttribute("newsList",newsList);
+            //要将pageInfo对象存入作用域,因为需要键来获取页数
+            req.setAttribute("page", page);
+            //转发
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            /**
+             * 点击首页新闻.跳转到news-con.jsp
+             */
+        }else if ("queryNews1".equals(url)){
+            //获取请求参数id
+            String idsbq=req.getParameter("id");
+            Integer id=Integer.parseInt(idsbq);
+            //调用业务层根据id查询方法
+            newsService.findById(id);
+            News news= newsService.findById(id);
+            //将news对象存入作用域,前端需要获取对象值
+            req.setAttribute("news",news);
+            //转发
+            req.getRequestDispatcher("news-con.jsp").forward(req,resp);
         }
     }
 }

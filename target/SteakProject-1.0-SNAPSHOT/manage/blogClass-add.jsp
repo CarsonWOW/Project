@@ -56,6 +56,10 @@
 						<td><input type="text" class="text" name="foodPrice"  /></td>
 					</tr>
 					<tr>
+						<td class="field">菜品描述：</td>
+						<td><input type="text" class="text" name="foodPrint"  /></td>
+					</tr>
+					<tr>
 						<td class="field">菜品图片：</td>
 						<td><input type="file" class="text" name="file"  /></td>
 					</tr>
