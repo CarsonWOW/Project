@@ -1,0 +1,8 @@
+Dao\NewsDaoImp.class
+Action\NewsAction.class
+Utils\BaseDao001.class
+Service\NewsServiceImp.class
+Po\News.class
+Dao\NewsDao.class
+Service\NewsService.class
+Utils\Page.class
