@@ -17,7 +17,7 @@
         <div class="box">
             <dl>
                 <dt>用户管理</dt>
-                <dd><em><a href="${pageContext.request.contextPath}/manage/user-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/user.jsp">用户管理</a></dd>
+                <dd><em><a href="${pageContext.request.contextPath}/manage/user-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/manage/queryUser.user">用户管理</a></dd>
                 <dt>新闻咨询管理</dt>
                 <dd><em><a href="${pageContext.request.contextPath}/manage/blog-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/New.new">新闻管理</a></dd>
                 <dt>美食管理</dt>

@@ -34,23 +34,35 @@
 	<div class="main">
 		<h2>修改用户</h2>
 		<div class="manage">
-			<form action="manage-result.jsp">
+			<form action="updateUser.user" method="post">
 				<table class="form">
 					<tr>
-						<td class="field">用户名：</td>
-						<td><input type="text" class="text" name="userName" value="zhangsan" readonly="readonly" /></td>
+						<td class="field"></td>
+						<td><input type="hidden" class="text" name="id" value="${user.buUserId}"  /></td>
 					</tr>
 					<tr>
-						<td class="field">姓名：</td>
-						<td><input type="text" class="text" name="name" value="张三" /></td>
+						<td class="field">Email：</td>
+						<td><input type="text" class="text" name="Email" value="${user.buEmail}" /></td>
+					</tr>
+					<tr>
+						<td class="field">用户名：</td>
+						<td><input type="text" class="text" name="userName" value="${user.buUserName}" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td class="field">密码：</td>
-						<td><input type="text" class="text" name="passWord" value="zhangsan" /></td>
+						<td><input type="text" class="text" name="passWord" value="${user.buPassword}" /></td>
 					</tr>
 					<tr>
 						<td class="field">性别：</td>
-						<td><input type="radio" name="sex" value="1" checked="checked" />男 <input type="radio" name="sex" value="1" />女</td>
+						<td><c:if test="${user.buSex=='男'}">
+								<input type="radio" name="sex" value="男" checked="checked" />男
+								<input type="radio" name="sex" value="女"/>女
+							</c:if>
+							<c:if test="${user.buSex=='女'}">
+								<input type="radio" name="sex" value="男" />男
+								<input type="radio" name="sex" value="女" checked="checked" />女
+							</c:if>
+						</td>
 					</tr>
 					<tr>
 						<td class="field">出生日期：</td>
@@ -58,12 +70,29 @@
 							<select name="birthyear">
 								<option value="2000">2000</option>
 								<option value="1999" selected="selected">1999</option>
+								<option value="1998">1998</option>
+								<option value="1997">1997</option>
+								<option value="1996">1996</option>
+								<option value="1995">1995</option>
 							</select>年
 							<select name="birthmonth">
 								<option value="12">12</option>
 								<option value="11" selected="selected">11</option>
+								<option value="10">10</option>
+								<option value="9">9</option>
+								<option value="8">8</option>
+								<option value="7">7</option>
+								<option value="6">6</option>
+								<option value="5">5</option>
+								<option value="4">4</option>
+								<option value="3">3</option>
+								<option value="2">2</option>
+								<option value="1">1</option>
 							</select>月
 							<select name="birthday">
+								<option value="5">5</option>
+								<option value="4">4</option>
+								<option value="3">3</option>
 								<option value="2">2</option>
 								<option value="1" selected="selected">1</option>
 							</select>日
@@ -71,11 +100,15 @@
 					</tr>
 					<tr>
 						<td class="field">手机号码：</td>
-						<td><input type="text" class="text" name="mobile" value="13800000000" /></td>
+						<td><input type="text" class="text" name="mobile" value="${user.buMobile}" /></td>
 					</tr>
 					<tr>
-						<td class="field">头像：</td>
-						<td><input type="file" class="text" name="photo" /></td>
+						<td class="field">用户权限：</td>
+						<td>
+							<select name="STATUS">
+								<option value="1">普通用户</option>
+								<option value="2">管理员</option>
+							</select>
 					</tr>
 					<tr>
 						<td></td>

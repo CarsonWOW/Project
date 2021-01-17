@@ -8,6 +8,14 @@
 <title>后台管理 - 博客网</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style(1).css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/function-manage.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script >
+		function Delete(id) {
+			if(confirm("确定要删除吗？")){
+				location.href = "user-delete.user?id=" + id;
+			}
+		}
+	</script>
 </head>
 <body>
 <div id="header" class="wrap">
@@ -43,21 +51,39 @@
 					<th>手机</th>
 					<th>操作</th>
 				</tr>
+				<c:forEach var="li" items="${list}">
+					<tr>
+						<td class="first w4 c">${li.buUserId}</td>
+						<td class="w1 c">${li.buUserName}</td>
+						<c:if test="${li.buSex=='男'}">
+							<td class="w2 c">男</td>
+						</c:if>
+						<c:if test="${li.buSex=='女'}">
+							<td class="w2 c">女</td>
+						</c:if>
+						<td>${li.buEmail}</td>
+						<td class="w4 c">${li.buMobile}</td>
+						<td class="w1 c"><a href="findbyid.user?id=${li.buUserId}">修改</a> <a href="javascript:Delete(${li.buUserId});">删除</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+
+			<table>
+
 				<tr>
-					<td class="first w4 c">1</td>
-					<td class="w1 c">张三丰</td>
-					<td class="w2 c">男</td>
-					<td>fengsan.zhang@prd.com</td>
-					<td class="w4 c">13888888888</td>
-					<td class="w1 c"><a href="user-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
-				</tr>
-				<tr>
-					<td class="first w4 c">2</td>
-					<td class="w1 c">杨二郎</td>
-					<td class="w2 c">男</td>
-					<td>fengsan.zhang@prd.com</td>
-					<td class="w4 c">13888888888</td>
-					<td class="w1 c"><a href="user-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
+					<td>
+						当前第${page.curPageNo} 页  总共${page.totalCount}条数据  总共${page.totalPageCount}页
+						<c:if test="${page.curPageNo>1}">
+							<a href="${pageContext.request.contextPath}/queryUser.user?curPageNo=1"> 首页</a>
+							<a  href="${pageContext.request.contextPath}/queryUser.user?curPageNo=${page.curPageNo-1}">上一页</a>
+						</c:if>
+
+						<c:if test="${page.curPageNo<page.totalPageCount}">
+							<a  href="${pageContext.request.contextPath}/queryUser.user?curPageNo=${page.curPageNo+1}">下一页</a>
+							<a href="${pageContext.request.contextPath}/queryUser.user?curPageNo=${page.totalPageCount}">末页</a>
+						</c:if>
+
+					</td>
 				</tr>
 			</table>
 		</div>
