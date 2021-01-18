@@ -82,15 +82,23 @@ public class FoodsDaoImp implements FoodsDao {
     }
 
     @Override
-    public List<Foods> FoodsQueryAll(Foods foods1, Page page) {
-        Foods foods=null;
+    public List<Foods> FoodsQueryAll(Foods foods, Page page) {
+        Foods foods1=null;
         List<Foods> list = new ArrayList<Foods>();
+        String sql ="SELECT * FROM food WHERE 1=1 ";
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        String sql ="SELECT * FROM food WHERE 1=1 LIMIT ?,?";
-        conn=BaseDao001.getConnection();
+
+        if (foods.getFoodName()!=null){//按照食物名查询
+            sql=sql+" AND FoodName LIKE '%"+foods.getFoodName()+"%'";
+
+        }
+            sql+=" LIMIT ?,?";
+            System.out.println(sql);
+
         try {
+            conn=BaseDao001.getConnection();
             pstm=conn.prepareStatement(sql);
             int begin = (page.getCurPageNo() - 1) * page.getPageSize();
             int end = page.getPageSize();
@@ -122,6 +130,10 @@ public class FoodsDaoImp implements FoodsDao {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         String sql = "SELECT COUNT(*) FROM food ";
+        if (foods.getFoodName()!=null){
+            sql=sql+" WHERE FoodName LIKE '%"+foods.getFoodName()+"%'";
+        }
+        System.out.println(sql);
         try {
             //1建立连接
             conn = BaseDao001.getConnection();

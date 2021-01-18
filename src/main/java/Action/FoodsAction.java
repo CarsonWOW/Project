@@ -56,12 +56,13 @@ public class FoodsAction  extends HttpServlet {
             }
             //创建业务层
             Page page = new Page();
+            Foods foods=new Foods();
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
             //将设置好的pageInfo对象,放入方法中
-            List<Foods> list = foodsService.FoodsQueryAll(null, page);
+            List<Foods> list = foodsService.FoodsQueryAll(foods, page);
             //获取总条数
-            int i = foodsService.getTotalCount(null);
+            int i = foodsService.getTotalCount(foods);
             //创建菜品种类
             List<FoodsType> foodsTypes = foodTypeService.findAll(null);
             //放入pageInfo对象中，获取总条数
@@ -213,10 +214,11 @@ public class FoodsAction  extends HttpServlet {
             Page page = new Page();
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
+            Foods foods=new Foods();
             //将设置好的pageInfo对象,放入方法中
-            List<Foods> list = foodsService.FoodsQueryAll(null, page);
+            List<Foods> list = foodsService.FoodsQueryAll(foods, page);
             //获取总条数
-            int i = foodsService.getTotalCount(null);
+            int i = foodsService.getTotalCount(foods);
             //放入pageInfo对象中，获取总条数
             page.setTotalCount(i);
             //将list参数,存入作用域中,因为jsp需要键,来获取值
@@ -258,10 +260,11 @@ public class FoodsAction  extends HttpServlet {
             Page page = new Page();
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
+            Foods foods=new Foods();
             //将设置好的pageInfo对象,放入方法中
-            List<Foods> listFood = foodsService.FoodsQueryAll(null, page);
+            List<Foods> listFood = foodsService.FoodsQueryAll(foods, page);
             //获取总条数
-            int i = foodsService.getTotalCount(null);
+            int i = foodsService.getTotalCount(foods);
             int i1=newsService.getTotalCount(null);
             //创建菜品种类
             List<FoodsType> foodsTypes = foodTypeService.findAll(null);

@@ -14,13 +14,25 @@ public class Test001 {
         NewsService newsService=new NewsServiceImp();
         FoodsService foodsService=new FoodsServiceImp();
         FoodTypeService foodTypeService=new FoodTypeServiceImp();
-        Foods foods=new Foods();
+        Foods food=new Foods();
+        food.setFoodName("牛");
+        int i= foodsService.getTotalCount(food);
+        System.out.println(i);
+        //Foods foods=new Foods();
+        //foods.setFoodName("牛");
+       /* Foods foods=new Foods();
+        Page page=new Page();
+         List<Foods> list= foodsService.FoodsQueryAll(foods,page);
+         for (Foods f:list){
+             System.out.println(f);
+         }*/
+        /*Foods foods=new Foods();
         foods.setfPicture("33.img");
         foods.setFoodName("测试");
         foods.setfPrice("10元");
         foods.setfTid(1);
          int i= foodsService.save(foods);
-        System.out.println(i);
+        System.out.println(i);*/
         /*List<FoodsType> list1=foodTypeService.findAll(null);
         for (FoodsType f:list1){
             System.out.println(f);
