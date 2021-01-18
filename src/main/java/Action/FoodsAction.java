@@ -206,6 +206,9 @@ public class FoodsAction  extends HttpServlet {
             //分页查询
             //获取当前页数
             String pageNow = req.getParameter("curPageNo");
+            //获取搜索名
+            String FoodName=req.getParameter("FoodName");
+            //创建对象
             Integer curPageNo = 1;
             //判断不为空,否则会报空指针异常
             if (pageNow != null) {
@@ -217,6 +220,7 @@ public class FoodsAction  extends HttpServlet {
             page.setPageSize(6);
             page.setCurPageNo(curPageNo);
             Foods foods=new Foods();
+            foods.setFoodName(FoodName);
             //将设置好的pageInfo对象,放入方法中
             List<Foods> list = foodsService.FoodsQueryAll(foods, page);
             //获取总条数

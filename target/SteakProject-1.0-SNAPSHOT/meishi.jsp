@@ -8,9 +8,15 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script>
+		function onSubmit() {
+			var FoodName=document.getElementById("searchform");
+			FoodName.submit();
+		}
+	</script>
 	<body>
 	<jsp:include page="comm.jsp"></jsp:include>
-		
 		<div id="container">
 			<div id="buttons">
 		        <span index="1" class="on"></span>
@@ -22,11 +28,11 @@
 		</div>
 		
 		<ul class="breadnav clearfix">
-			<li class="bnav-item"><a href="index.jsp">首页</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/findNews.food">首页</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="meishi.jsp">美食系列</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/queryFoods.food">美食系列</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="javascript:;">全部菜品</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/queryFoods.food">全部菜品</a></li>
 		</ul>
 		<div class="clearfix table-wrap" id="tab-span">
 			<span class="table-item table-active">全部菜品</span>
@@ -34,10 +40,10 @@
 			<span class="table-item">${u.foodsTypeName}</span>
 			</c:forEach>
 			<div class="search clearfix">
-				<input class="inp-txt" type="text" name="address" value="输入关键字" 
-				onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
-				onblur="if(this.value==''||this.value=='输入关键字'){this.value='输入关键字';this.style.color='gray';}" />
-				<input class="inp-btn" type="button" name="" id="" value="搜索" />
+				<form action="${pageContext.request.contextPath}/queryFoods.food" method="post" name="searchform" id="searchform">
+				<input class="inp-txt" type="text" name="FoodName" id="FoodName"  >
+				<input class="inp-btn" type="button" name="Submit" id="Submit" value="搜索" onclick="onSubmit()">
+			</form>
 			</div>
 		</div>
 		<div id="table-div">
