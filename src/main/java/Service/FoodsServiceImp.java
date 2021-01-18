@@ -38,4 +38,9 @@ public class FoodsServiceImp implements FoodsService {
     public int getTotalCount(Foods foods) {
         return foodsDao.getTotalCount(foods);
     }
+
+    /*@Override
+    public List<Foods> FindByFoodsTypeID(int foodTypeID,Page page) {
+        return foodsDao.FindByFoodsTypeID(foodTypeID,page);
+    }*/
 }

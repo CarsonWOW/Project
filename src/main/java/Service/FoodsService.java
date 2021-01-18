@@ -32,4 +32,8 @@ public interface FoodsService {
      * 获取总条数
      */
     public int getTotalCount(Foods foods);
+    /**
+     * 根据菜品种类id查询
+     */
+    /*public List<Foods> FindByFoodsTypeID(int foodTypeID,Page page);*/
 }

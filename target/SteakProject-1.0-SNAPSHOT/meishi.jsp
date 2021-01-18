@@ -35,9 +35,9 @@
 			<li class="bnav-item"><a href="${pageContext.request.contextPath}/queryFoods.food">全部菜品</a></li>
 		</ul>
 		<div class="clearfix table-wrap" id="tab-span">
-			<span class="table-item table-active">全部菜品</span>
+			<span class="table-item table-active"><a href="${pageContext.request.contextPath}/queryFoods.food">全部菜品</a></span>
 			<c:forEach var="u" items="${foodsTypes}">
-			<span class="table-item">${u.foodsTypeName}</span>
+			<span class="table-item" ><a href="${pageContext.request.contextPath}/findFoodsType.food?id=${u.childId}">${u.foodsTypeName}</a></span>
 			</c:forEach>
 			<div class="search clearfix">
 				<form action="${pageContext.request.contextPath}/queryFoods.food" method="post" name="searchform" id="searchform">

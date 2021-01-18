@@ -33,5 +33,13 @@ public interface FoodsDao {
      * 获取总条数
      */
     public int getTotalCount(Foods foods);
+   /* *//**
+     * 根据菜品种类id查询
+     *//*
+    public List<Foods> FindByFoodsTypeID(int foodTypeID,Page page);
+    *//**
+     * 获取相同种类的总条数
+     *//*
+    public int getFoodsTypeTotalCount(Foods foods);*/
 
 }

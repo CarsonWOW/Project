@@ -14,10 +14,17 @@ public class Test001 {
         NewsService newsService=new NewsServiceImp();
         FoodsService foodsService=new FoodsServiceImp();
         FoodTypeService foodTypeService=new FoodTypeServiceImp();
-        Foods food=new Foods();
+        Page page=new Page();
+        Foods foods=new Foods();
+        foods.setfTid(1);
+       List<Foods> list= foodsService.FoodsQueryAll(foods,page);
+       for (Foods f:list){
+           System.out.println(f);
+       }
+        /*Foods food=new Foods();
         food.setFoodName("牛");
         int i= foodsService.getTotalCount(food);
-        System.out.println(i);
+        System.out.println(i);*/
         //Foods foods=new Foods();
         //foods.setFoodName("牛");
        /* Foods foods=new Foods();
