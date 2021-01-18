@@ -56,6 +56,7 @@ public class FoodsAction  extends HttpServlet {
             }
             //创建业务层
             Page page = new Page();
+            page.setPageSize(5);
             Foods foods=new Foods();
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
@@ -213,6 +214,7 @@ public class FoodsAction  extends HttpServlet {
             //创建业务层
             Page page = new Page();
             //将获取到的页数,存如pageInfo对象
+            page.setPageSize(6);
             page.setCurPageNo(curPageNo);
             Foods foods=new Foods();
             //将设置好的pageInfo对象,放入方法中

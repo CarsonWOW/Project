@@ -59,6 +59,7 @@ public class NewsAction extends HttpServlet {
             }
             //创建业务层
             Page page = new Page();
+            page.setPageSize(2);
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
             //将设置好的pageInfo对象,放入方法中

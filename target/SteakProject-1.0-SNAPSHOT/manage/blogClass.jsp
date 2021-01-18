@@ -90,6 +90,23 @@
 					<td class="w1 c"><a href="blogClass-modify.jsp">修改</a> <a href="javascript:Delete(1);">删除</a></td>
 				</tr>--%>
 			</table>
+			<table>
+				<tr>
+					<td>
+						当前第${page.curPageNo} 页  总共${page.totalCount}条数据  总共${page.totalPageCount}页
+						<c:if test="${page.curPageNo>1}">
+							<a href="${pageContext.request.contextPath}/Food.food?curPageNo=1"> 首页</a>
+							<a  href="${pageContext.request.contextPath}/Food.food?curPageNo=${page.curPageNo-1}">上一页</a>
+						</c:if>
+
+						<c:if test="${page.curPageNo<page.totalPageCount}">
+							<a  href="${pageContext.request.contextPath}/Food.food?curPageNo=${page.curPageNo+1}">下一页</a>
+							<a href="${pageContext.request.contextPath}/Food.food?curPageNo=${page.totalPageCount}">末页</a>
+						</c:if>
+
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div class="clear"></div>
