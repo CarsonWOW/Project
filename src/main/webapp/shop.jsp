@@ -8,6 +8,13 @@
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+	<script>
+		function onSubmit() {
+			var FoodName=document.getElementById("searchform");
+			FoodName.submit();
+		}
+	</script>
 	<body>
 	<jsp:include page="comm.jsp"></jsp:include>
 		
@@ -22,121 +29,144 @@
 		</div>
 		
 		<ul class="breadnav clearfix">
-			<li class="bnav-item"><a href="index.jsp">首页</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/findNews.food">首页</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="shop.jsp">店面展示</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/queryShops.shop">店面展示</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="javascript:;">北京店</a></li>
+			<li class="bnav-item"><a href="javascript:;">全部店面</a></li>
 		</ul>
 		<div class="clearfix table-wrap" id="tab-span">
-			<span class="table-item table-active">北京店</span>
-			<span class="table-item">上海店</span>
-			<span class="table-item">厦门店</span>
-			<span class="table-item">广州店</span>
-			<span class="table-item">深圳店</span>
-			<span class="table-item">其他</span>
+			<span class="table-item table-active">全部店面</span>
+			<c:forEach var="u" items="${shopsTypes}">
+				<span class="table-item">${u.BU_Name}</span>
+			</c:forEach>
 			<div class="search clearfix">
-				<input class="inp-txt" type="text" name="address" value="输入关键字" 
-				onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
-				onblur="if(this.value==''||this.value=='输入关键字'){this.value='输入关键字';this.style.color='gray';}" />
-				<input class="inp-btn" type="button" name="" id="" value="搜索" />
+				<form action="${pageContext.request.contextPath}/queryShops.shop" method="post" name="searchform" id="searchform">
+					<input class="inp-txt" type="text" name="FoodName" id="FoodName"  >
+					<input class="inp-btn" type="button" name="Submit" id="Submit" value="搜索" onclick="onSubmit()">
+				</form>
 			</div>
 		</div>
-		<div id="table-div">
-			<div class="table-pic table-show clearfix">
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic1.jpg" alt="" />
+	<div id="table-div">
+		<div class="table-pic table-show clearfix">
+			<c:forEach var="li" items="${list}">.
+				<input type="hidden" name="id" value="${li.shopId}">
+				<a href="${pageContext.request.contextPath}/findShopsByID.shop?id=${li.shopId}" class="shop-wrap shop-right">
+					<span class="ms-pic">
+						<%--店面图片--%>
+						<img src="${li.shopPicture}" alt="" />
 					</span>
-					<p class="shop-tit">北京朝阳区店</p>
+						<%--店面名称--%>
+					<p class="shop-tit">${li.shopName}</p>
 				</a>
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic2.jpg" alt="" />
-					</span>
-					<p class="shop-tit">北京朝阳区店</p>
-				</a>
-				<a href="shop-con.jsp" class="shop-wrap">
-					<span class="shop-pic">
-						<img src="img/shop-pic3.jpg" alt="" />
-					</span>
-					<p class="shop-tit">北京朝阳区店</p>
-				</a>
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic4.jpg" alt="" />
-					</span>
-					<p class="shop-tit">北京朝阳区店</p>
-				</a>
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic5.jpg" alt="" />
-					</span>
-					<p class="shop-tit">北京朝阳区店</p>
-				</a>
-				<a href="shop-con.jsp" class="shop-wrap">
-					<span class="shop-pic">
-						<img src="img/shop-pic6.jpg" alt="" />
-					</span>
-					<p class="shop-tit">北京朝阳区店</p>
-				</a>
-			</div>
-			<div class="table-pic clearfix">
-				<a href="shop-con.jsp" class="shop-wrap">
-					<span class="shop-pic">
-						<img src="img/shop-pic3.jpg" alt="" />
-					</span>
-					<p class="shop-tit">上海朝阳区店</p>
-				</a>
-			</div>
-			<div class="table-pic clearfix">
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic4.jpg" alt="" />
-					</span>
-					<p class="shop-tit">厦门朝阳区店</p>
-				</a>
-				<a href="shop-con.jsp" class="shop-wrap">
-					<span class="shop-pic">
-						<img src="img/shop-pic6.jpg" alt="" />
-					</span>
-					<p class="shop-tit">厦门朝阳区店</p>
-				</a>
-			</div>
-			<div class="table-pic clearfix">
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic5.jpg" alt="" />
-					</span>
-					<p class="shop-tit">广州朝阳区店</p>
-				</a>
-			</div>
-			<div class="table-pic clearfix">
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic2.jpg" alt="" />
-					</span>
-					<p class="shop-tit">深圳朝阳区店</p>
-				</a>
-			</div>
-			<div class="table-pic clearfix">
-				<a href="shop-con.jsp" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="img/shop-pic1.jpg" alt="" />
-					</span>
-					<p class="shop-tit">朝阳区店</p>
-				</a>
-			</div>
-			<ul class="shop-paging clearfix">
-				<li><a href="shop-con.jsp" class="pag-item">&lt;</a></li>
-				<li><a href="shop-con.jsp" class="pag-item pag-active">1</a></li>
-				<li><a href="javascript:;" class="pag-item">2</a></li>
-				<li><a href="javascript:;" class="pag-item">3</a></li>
-				<li><a href="javascript:;" class="pag-item">4</a></li>
-				<li><a href="javascript:;" class="pag-item">&gt;</a></li>
-			</ul>
+			</c:forEach>
+			<%--<a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic1.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic2.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap">
+                <span class="shop-pic">
+                    <img src="img/shop-pic3.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic4.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic5.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap">
+                <span class="shop-pic">
+                    <img src="img/shop-pic6.jpg" alt="" />
+                </span>
+                <p class="shop-tit">北京朝阳区店</p>
+            </a>
+        </div>
+        <div class="table-pic clearfix">
+            <a href="shop-con.jsp" class="shop-wrap">
+                <span class="shop-pic">
+                    <img src="img/shop-pic3.jpg" alt="" />
+                </span>
+                <p class="shop-tit">上海朝阳区店</p>
+            </a>
+        </div>
+        <div class="table-pic clearfix">
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic4.jpg" alt="" />
+                </span>
+                <p class="shop-tit">厦门朝阳区店</p>
+            </a>
+            <a href="shop-con.jsp" class="shop-wrap">
+                <span class="shop-pic">
+                    <img src="img/shop-pic6.jpg" alt="" />
+                </span>
+                <p class="shop-tit">厦门朝阳区店</p>
+            </a>
+        </div>
+        <div class="table-pic clearfix">
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic5.jpg" alt="" />
+                </span>
+                <p class="shop-tit">广州朝阳区店</p>
+            </a>
+        </div>
+        <div class="table-pic clearfix">
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic2.jpg" alt="" />
+                </span>
+                <p class="shop-tit">深圳朝阳区店</p>
+            </a>
+        </div>
+        <div class="table-pic clearfix">
+            <a href="shop-con.jsp" class="shop-wrap shop-right">
+                <span class="shop-pic">
+                    <img src="img/shop-pic1.jpg" alt="" />
+                </span>
+                <p class="shop-tit">朝阳区店</p>
+            </a>
+        </div>
+        <ul class="shop-paging clearfix">
+            <li><a href="shop-con.jsp" class="pag-item">&lt;</a></li>
+            <li><a href="shop-con.jsp" class="pag-item pag-active">1</a></li>
+            <li><a href="javascript:;" class="pag-item">2</a></li>
+            <li><a href="javascript:;" class="pag-item">3</a></li>
+            <li><a href="javascript:;" class="pag-item">4</a></li>
+            <li><a href="javascript:;" class="pag-item">&gt;</a></li>
+        </ul>--%>
 		</div>
-
+		<ul class="shop-paging clearfix">
+			<li><a href="javascript:;" class="pag-item">&lt;</a></li>
+			<c:if test="${page.curPageNo>1}">
+				<li><a href="${pageContext.request.contextPath}/queryShops.shop?curPageNo=1" class="pag-item pag-active">首页</a></li>
+				<li><a href="${pageContext.request.contextPath}/queryShops.shop?curPageNo=1" class="pag-item pag-active">上一页</a></li>
+			</c:if>
+			<c:if test="${page.curPageNo<page.totalPageCount}">
+				<li><a href="${pageContext.request.contextPath}/queryShops.shop?curPageNo=${page.curPageNo+1}" class="pag-item">下一页</a></li>
+				<li><a href="${pageContext.request.contextPath}/queryShops.shop?curPageNo=${page.totalPageCount}" class="pag-item">末页</a></li>
+			</c:if>
+			<li><a href="javascript:;" class="pag-item">&gt;</a></li>
+			<tr>
+			</tr>
+		</ul>
+	</div>
 		<div class="foot">
 			<div class="foot-wrap">
 				<p class="foot-tit">友情链接</p>

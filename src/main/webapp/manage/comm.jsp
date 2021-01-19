@@ -22,8 +22,8 @@
                 <dd><em><a href="${pageContext.request.contextPath}/manage/blog-add.jsp">新增</a></em><a href="${pageContext.request.contextPath}/New.new">新闻管理</a></dd>
                 <dt>美食管理</dt>
                 <dd><em><a href="${pageContext.request.contextPath}/manage/addFood.food">新增</a></em><a href="${pageContext.request.contextPath}/Food.food">菜品管理</a></dd>
-                <dt>留言管理</dt>
-                <dd><a href="${pageContext.request.contextPath}/manage/guestbook.jsp">留言管理</a></dd>
+                <dt>店面管理</dt>
+                <dd><em><a href="${pageContext.request.contextPath}/manage/addShop.shop">新增</a></em><a href="${pageContext.request.contextPath}/Shop.shop">店面管理</a></dd>
             </dl>
         </div>
     </div>

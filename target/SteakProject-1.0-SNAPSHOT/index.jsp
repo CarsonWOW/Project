@@ -10,10 +10,8 @@
     <title>首页</title>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
-<input type="text" name="i_date" onfocus="WdatePicker()"/>
 </body>
 <jsp:include page="comm.jsp"></jsp:include>
 <div id="container">
