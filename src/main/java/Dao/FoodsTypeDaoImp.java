@@ -42,4 +42,5 @@ public class FoodsTypeDaoImp implements FoodsTypeDao {
     public FoodsType findByTypeId(int id) {
         return null;
     }*/
+
 }

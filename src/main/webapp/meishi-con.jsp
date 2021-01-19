@@ -22,9 +22,9 @@
 		</div>
 		
 		<ul class="breadnav clearfix">
-			<li class="bnav-item"><a href="index.jsp">首页</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/findNews.food">首页</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="meishi.jsp">美食系列</a></li>
+			<li class="bnav-item"><a href="${pageContext.request.contextPath}/queryFoods.food">美食系列</a></li>
 			<li class="bnav-item">&lt;</li>
 			<li class="bnav-item"><a href="javascript:;">${foods.foodName}</a></li>
 		</ul>
@@ -39,7 +39,7 @@
 				<%--食物描述--%>
 				<p>${foods.foodPrint}</p>
 			</div>
-			<a href="meishi.jsp" class="meishi-icon">返回列表页</a>
+			<a href="${pageContext.request.contextPath}/queryFoods.food" class="meishi-icon">返回列表页</a>
 		</div>
 
 		<div class="foot">
