@@ -109,9 +109,11 @@ public class ShopsDaoImpl implements ShopsDao {
         if (shops.getShopName()!=null){//按照店面名查询
             sql=sql+" AND Shop_Name LIKE '%"+shops.getShopName()+"%'";
 
+        }else if (shops.getShopTypeId()!=0){
+            sql=sql+"AND Shop_TypeID="+shops.getShopTypeId();
         }
-            sql+=" LIMIT ?,?";
-            System.out.println(sql);
+        sql+=" LIMIT ?,?";
+        System.out.println(sql);
 
         try {
             conn=BaseDao001.getConnection();
@@ -153,6 +155,8 @@ public class ShopsDaoImpl implements ShopsDao {
         String sql = "SELECT COUNT(*) FROM Storefront ";
         if (shops.getShopName()!=null){//按照店面名查询
             sql=sql+" AND Shop_Name LIKE '%"+shops.getShopName()+"%'";
+        }else if (shops.getShopTypeId()!=0){
+            sql=sql+"AND Shop_TypeID="+shops.getShopTypeId();
         }
         System.out.println(sql);
         try {

@@ -1,6 +1,8 @@
 package Action;
 
 
+import Po.Foods;
+import Po.FoodsType;
 import Po.Shops;
 import Po.ShopsType;
 import Service.ShopTypeService;
@@ -259,6 +261,45 @@ public class ShopsAction extends HttpServlet {
             req.setAttribute("shops",shops);
             //转发
             req.getRequestDispatcher("shop-con.jsp").forward(req,resp);
+            /**
+             * 点击菜品种类,查询菜品,根据种类id查询
+             */
+        }else if ("findShopsType".equals(url)){
+            //分页查询
+            //获取当前页数
+            String pageNow = req.getParameter("curPageNo");
+            //获取id
+            String idsbq=req.getParameter("id");
+            Integer id=Integer.parseInt(idsbq);
+            //创建对象
+            Integer curPageNo = 1;
+            //判断不为空,否则会报空指针异常
+            if (pageNow != null) {
+                curPageNo = Integer.parseInt(pageNow);
+            }
+            //创建业务层
+            Page page = new Page();
+            //将获取到的页数,存如pageInfo对象
+            page.setPageSize(6);
+            page.setCurPageNo(curPageNo);
+            Shops shops=new Shops();
+            shops.setShopTypeId(id);
+            //将设置好的pageInfo对象,放入方法中
+            List<Shops> list = shopsService.FoodsQueryAll(shops, page);
+            //获取总条数
+            int i = shopsService.getTotalCount(shops);
+            //放入pageInfo对象中，获取总条数
+            page.setTotalCount(i);
+            //将list参数,存入作用域中,因为jsp需要键,来获取值
+            //将foods对象存入作用域
+            List<ShopsType> shopsTypes = shopTypeService.findAll(null);
+            //将参数存入作用域
+            req.setAttribute("shopsTypes", shopsTypes);
+            req.setAttribute("list", list);
+            //要将pageInfo对象存入作用域,因为需要键来获取页数
+            req.setAttribute("page", page);
+            //转发
+            req.getRequestDispatcher("shop.jsp").forward(req, resp);
         }
     }
 }
