@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+</body>
 <jsp:include page="comm.jsp"></jsp:include>
-
 <div id="container">
     <div id="buttons">
         <span index="1" class="on"></span>
