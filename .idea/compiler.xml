@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SteakProject01" />
-        <module name="Project01" />
-        <module name="SteakProject" />
         <module name="Project001" />
+        <module name="SteakProject" />
+        <module name="Project01" />
       </profile>
     </annotationProcessing>
   </component>
