@@ -266,20 +266,20 @@ public class FoodsAction  extends HttpServlet {
             Page page = new Page();
             //将获取到的页数,存如pageInfo对象
             page.setCurPageNo(curPageNo);
-            Foods foods=new Foods();
+            /*Foods foods=new Foods();*/
             //将设置好的pageInfo对象,放入方法中
-            List<Foods> listFood = foodsService.FoodsQueryAll(foods, page);
+            /*List<Foods> listFood = foodsService.FoodsQueryAll(foods, page);*/
             //获取总条数
-            int i = foodsService.getTotalCount(foods);
-            int i1=newsService.getTotalCount(null);
+            /*int i = foodsService.getTotalCount(foods);*/
+            int i=newsService.getTotalCount(null);
             //创建菜品种类
-            List<FoodsType> foodsTypes = foodTypeService.findAll(null);
+            /*List<FoodsType> foodsTypes = foodTypeService.findAll(null);*/
             List<News> newsList = newsService.NewsQueryAll(null, page);
             //放入pageInfo对象中，获取总条数
             page.setTotalCount(i);
             //将list参数,存入作用域中,因为jsp需要键,来获取值
-            req.setAttribute("foodsTypes", foodsTypes);
-            req.setAttribute("listFood", listFood);
+            /*req.setAttribute("foodsTypes", foodsTypes);*/
+            /*req.setAttribute("listFood", listFood);*/
             req.setAttribute("newsList",newsList);
             //要将pageInfo对象存入作用域,因为需要键来获取页数
             req.setAttribute("page", page);
@@ -338,8 +338,6 @@ public class FoodsAction  extends HttpServlet {
             req.setAttribute("page", page);
             //转发
             req.getRequestDispatcher("meishi.jsp").forward(req, resp);
-
-
         }
     }
 }

@@ -53,13 +53,20 @@
 				<img src="img/news-line.png"/>
 			</span>
 			</c:forEach>
-			<ul class="shop-paging clearfix">
+			<ul class="ms-paging clearfix">
 				<li><a href="javascript:;" class="pag-item">&lt;</a></li>
-				<li><a href="news.jsp" class="pag-item pag-active">1</a></li>
-				<li><a href="javascript:;" class="pag-item">2</a></li>
-				<li><a href="javascript:;" class="pag-item">3</a></li>
-				<li><a href="javascript:;" class="pag-item">4</a></li>
+				<c:if test="${page.curPageNo>1}">
+					<li><a href="${pageContext.request.contextPath}/queryNew.new?curPageNo=1" class="pag-item pag-active">首页</a></li>
+					<li><a href="${pageContext.request.contextPath}/queryNew.new?curPageNo=1" class="pag-item pag-active">上一页</a></li>
+				</c:if>
+				<c:if test="${page.curPageNo<page.totalPageCount}">
+					<li><a href="${pageContext.request.contextPath}/queryNew.new?curPageNo=${page.curPageNo+1}" class="pag-item">下一页</a></li>
+					<li><a href="${pageContext.request.contextPath}/queryNew.new?curPageNo=${page.totalPageCount}" class="pag-item">末页</a></li>
+				</c:if>
 				<li><a href="javascript:;" class="pag-item">&gt;</a></li>
+				<tr>
+					<td>当前第${page.curPageNo} 页  总共${page.totalCount}条数据  总共${page.totalPageCount}页</td>
+				</tr>
 			</ul>
 		</div>
 		<div class="foot">

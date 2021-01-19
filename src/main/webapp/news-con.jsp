@@ -32,7 +32,7 @@
 		<div class="news-conwrap">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 			<h1 class="news-contit">${news.newTitle}</h1>
 			<p class="news-conitem">${news.newDDes}</p>
-			<a href="news.jsp" class="shop-icon">返回列表页</a>
+			<a href="${pageContext.request.contextPath}/queryNew.new" class="shop-icon">返回列表页</a>
 		</div>
 
 		<div class="foot">

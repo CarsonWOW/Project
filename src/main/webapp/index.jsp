@@ -139,6 +139,23 @@
                 <p class="link-time">${u.createTime}</p>
                 </c:forEach>
             </a>
+                <table>
+                    <tr>
+                        <td>
+                            当前第${page.curPageNo} 页  总共${page.totalCount}条数据  总共${page.totalPageCount}页
+                            <c:if test="${page.curPageNo>1}">
+                                <a href="${pageContext.request.contextPath}/findNews.food?curPageNo=1"> 首页</a>
+                                <a  href="${pageContext.request.contextPath}/findNews.food?curPageNo=${page.curPageNo-1}">上一页</a>
+                            </c:if>
+
+                            <c:if test="${page.curPageNo<page.totalPageCount}">
+                                <a  href="${pageContext.request.contextPath}/findNews.food?curPageNo=${page.curPageNo+1}">下一页</a>
+                                <a href="${pageContext.request.contextPath}/findNews.food?curPageNo=${page.totalPageCount}">末页</a>
+                            </c:if>
+
+                        </td>
+                    </tr>
+                </table>
         </dd>
     </dl>
 </div>
