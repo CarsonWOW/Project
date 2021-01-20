@@ -52,7 +52,7 @@
 			</tr>
 			<c:forEach var="li" items="${list}">
 				<tr>
-					<td class="first w4 c">${li.shopTypeId}</td>
+					<td class="first w4 c">${li.shopId}</td>
 					<td>${li.shopName}</td>
 					<td>${li.shopSite}</td>
 					<c:forEach var="u" items="${shopsTypes}">
@@ -60,7 +60,7 @@
 							<td>${u.BU_Name}</td>
 						</c:if>
 					</c:forEach>
-					<td class="w1 c"><a href="findFoodsById.shop?id=${li.shopTypeId}">修改</a> <a href="javascript:deleteFoods(${li.shopTypeId});">删除</a></td>
+					<td class="w1 c"><a href="findFoodsById.shop?id=${li.shopId}">修改</a> <a href="javascript:deleteFoods(${li.shopId});">删除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
